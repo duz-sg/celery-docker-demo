@@ -3,7 +3,7 @@ services:
   worker:
     build: .
     image: &img worker
-    command: [celery, worker, --app=worker.app, -n worker@%h, --concurrency=20, --loglevel=INFO]
+    command: [celery, worker, --app=worker.app, -n worker@%h, --concurrency=1, --loglevel=INFO]
     environment: &env
       - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672
     depends_on:
